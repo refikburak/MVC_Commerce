@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using MVC_Commerce.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+////DbContext Configure
+//builder.Services.AddDbContext<CommerceContext>(options=>options.UseSqlServer(Configuration.));
 
 var app = builder.Build();
 
