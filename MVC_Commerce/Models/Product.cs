@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Commerce.Models
 {
@@ -9,7 +10,7 @@ namespace MVC_Commerce.Models
         public string ProductBrand { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public List<string> ProductImageURLs { get; set; }
+        public string ProductImageURL { get; set; }
         public double ProductPrice { get; set; }
         public long  ProductQuantity { get; set; }
 
