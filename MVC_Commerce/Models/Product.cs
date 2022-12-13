@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Commerce.Models
@@ -7,15 +8,23 @@ namespace MVC_Commerce.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Display(Name = "Brand")]
         public string ProductBrand { get; set; }
+        [Display(Name = "Name")]
         public string ProductName { get; set; }
+        [Display(Name = "Decription")]
         public string ProductDescription { get; set; }
+        [Display(Name = "Image URL")]
         public string ProductImageURL { get; set; }
+        [Display(Name = "Price")]
         public double ProductPrice { get; set; }
+        [Display(Name = "Quantity")]
         public long  ProductQuantity { get; set; }
 
         //Category
         public int CategoryId { get; set; }
+        [Display(Name = "Category")]
         public Category Category { get; set; }
 
         //Relationships

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MVC_Commerce.Data;
 using MVC_Commerce.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,5 +30,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//Seed Database
+CommerceDbInitializer.Seed(app);
 
 app.Run();
