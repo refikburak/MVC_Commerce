@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MVC_Commerce.Data;
+using MVC_Commerce.Data.Services;
+using MVC_Commerce.Data.Services.Interfaces;
 using MVC_Commerce.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,8 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-////DbContext Configure
+//DbContext Configuration
 builder.Services.AddDbContext<CommerceContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+//Service Configuration
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
@@ -29,7 +33,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 //Seed Database
 CommerceDbInitializer.Seed(app);

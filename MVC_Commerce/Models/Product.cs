@@ -15,7 +15,7 @@ namespace MVC_Commerce.Models
         public string ProductName { get; set; }
         [Display(Name = "Decription")]
         public string ProductDescription { get; set; }
-        [Display(Name = "Image URL")]
+        [Display(Name = "Image")]
         public string ProductImageURL { get; set; }
         [Display(Name = "Price")]
         public double ProductPrice { get; set; }

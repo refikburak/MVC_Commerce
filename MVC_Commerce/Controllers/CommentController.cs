@@ -14,8 +14,8 @@ namespace MVC_Commerce.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var comments=await _context.Comments.ToListAsync();
-            return View();
+            var comments=await _context.Comments.Include(n=>n.User).Include(n=>n.Product).ToListAsync();
+            return View(comments);
         }
     }
 }

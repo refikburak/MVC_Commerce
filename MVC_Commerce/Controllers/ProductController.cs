@@ -15,7 +15,7 @@ namespace MVC_Commerce.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var products=await _context.Products.ToListAsync();
+            var products=await _context.Products.Include(n=>n.Category).ToListAsync();
             return View(products);
         }
     }

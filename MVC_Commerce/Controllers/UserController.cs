@@ -15,7 +15,7 @@ namespace MVC_Commerce.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users.ToListAsync();
-            return View();
+            return View(users);
         }
     }
 }
