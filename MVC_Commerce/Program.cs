@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MVC_Commerce.Data;
+using MVC_Commerce.Data.Interfaces;
 using MVC_Commerce.Data.Services;
-using MVC_Commerce.Data.Services.Interfaces;
 using MVC_Commerce.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CommerceContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 //Service Configuration
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

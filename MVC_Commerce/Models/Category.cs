@@ -1,9 +1,10 @@
-﻿using System.ComponentModel;
+﻿using MVC_Commerce.Data.Base;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Commerce.Models
 {
-    public class Category
+    public class Category:IEntityBase
     {
         [Key]
         public int Id { get; set; }
