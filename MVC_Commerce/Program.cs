@@ -14,6 +14,7 @@ builder.Services.AddDbContext<CommerceContext>(options => options.UseSqlServer(b
 //Service Configuration
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

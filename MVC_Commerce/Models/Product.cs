@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using MVC_Commerce.Data.Base;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Commerce.Models
 {
-    public class Product
+    public class Product:IEntityBase
     {
         [Key]
         public int Id { get; set; }

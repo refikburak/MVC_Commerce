@@ -49,5 +49,48 @@ namespace MVC_Commerce.Controllers
             }
             return View(user);
         }
+        
+        //GET: User/Edit
+        public async Task<IActionResult> Edit(int id)
+        {
+            var userDetails = await _service.GetByIdAsync(id);
+            if (userDetails == null) return NotFound();
+            return View(userDetails);
+        }
+
+        // POST: User/Edit/1
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,UserSurname,UserEmail,UserPhoneNumber,UserBalance,Comments,Favourites")] User user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id == user.Id)
+                {
+                    await _service.UpdateAsync(id, user);
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return View(user);
+        }
+
+        //GET: User/Edit
+        public async Task<IActionResult> Delete(int id)
+        {
+            var userDetails = await _service.GetByIdAsync(id);
+            if (userDetails == null) return NotFound();
+            return View(userDetails);
+        }
+
+        // POST: User/Edit/1
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var userDetails = await _service.GetByIdAsync(id);
+            if (userDetails == null) return NotFound();
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

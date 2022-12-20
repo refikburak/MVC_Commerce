@@ -4,25 +4,24 @@
     ViewData["Title"] = "List of Products";
 }
 
+
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-2 col-md-3 col-sm-6">
-            <div class="product-card">
-                <div class="badge">Hot</div>
-                <div class="product-tumb">
-                    <img src="@item.ProductImageURL" width="100%" height="100%" alt="">
+        <div class="col-6 ">
+            <div class="wrapper">
+                <div class="product-img">
+                    <img src="@item.ProductImageURL" height="420" width="327">
                 </div>
-                <div class="product-details">
-                    <span class="product-catagory">@item.Category.CategoryName</span>
-                    <h4><a href="">@item.ProductBrand @item.ProductName</a></h4>
-                    <p>@item.ProductDescription</p>
-                    <div class="product-bottom-details">
-                        <div class="product-price">@item.ProductPrice ₺</div>
-                        <div class="product-links">
-                            <a href=""><i class="fa fa-heart"></i></a>
-                            <a href=""><i class="fa fa-shopping-cart"></i></a>
-                        </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h1>@item.ProductBrand @item.ProductName</h1>
+                        <h2>@item.Category.CategoryName</h2>
+                        <p>@item.ProductDescription </p>
+                    </div>
+                    <div class="product-price-btn">
+                        <p><span>@item.ProductPrice</span>₺</p>
+                        <button type="button">buy now</button>
                     </div>
                 </div>
             </div>

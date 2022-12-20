@@ -6,8 +6,6 @@ using MVC_Commerce.Models;
 namespace MVC_Commerce.Data.Services
 {
     public class CategoryService : EntityBaseRepository<Category>, ICategoryService
-    {
-        private readonly CommerceContext _context;
-        public CategoryService(CommerceContext context) : base(context) { }
+    {        public CategoryService(CommerceContext context) : base(context) { }
     }
 }
