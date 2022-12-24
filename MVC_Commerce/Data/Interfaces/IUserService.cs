@@ -5,5 +5,6 @@ namespace MVC_Commerce.Data.Interfaces
 {
     public interface IUserService : IEntityBaseRepository<User>
     {
+        Task<User> GetUserByIdAsync(int id);
     }
 }

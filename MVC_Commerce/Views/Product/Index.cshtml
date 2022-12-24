@@ -9,7 +9,7 @@
     @foreach (var item in Model)
     {
         <div class="col-6 ">
-            <div class="wrapper">
+            <div class="wrapper"><a asp-action="Details" asp-route-id="@item.Id">
                 <div class="product-img">
                     <img src="@item.ProductImageURL" height="420" width="327">
                 </div>
@@ -24,6 +24,7 @@
                         <button type="button">buy now</button>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
     }

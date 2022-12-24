@@ -23,7 +23,7 @@ namespace MVC_Commerce.Controllers
         public async Task<IActionResult> Details(int id)
         {
 
-            var userDetails = await _service.GetByIdAsync(id);
+            var userDetails = await _service.GetUserByIdAsync(id);
             if (userDetails == null)
                 return NotFound();
 

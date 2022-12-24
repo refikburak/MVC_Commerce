@@ -8,7 +8,8 @@ namespace MVC_Commerce.Data.Services
     public class ProductService : EntityBaseRepository<Product>, IProductService
     {
         private readonly CommerceContext _context;
-        public ProductService(CommerceContext context) : base(context) {
+        public ProductService(CommerceContext context) : base(context)
+        {
             _context = context;
         }
 
@@ -19,8 +20,8 @@ namespace MVC_Commerce.Data.Services
                             .Include(c => c.Comments)
                             .Include(f => f.Favourites)
                             .ThenInclude(u => u.User)
-                            .FirstOrDefaultAsync(n=>n.Id==id);
+                            .FirstOrDefaultAsync(n => n.Id == id);
             return await productDetails;
-                }
+        }
     }
 }
