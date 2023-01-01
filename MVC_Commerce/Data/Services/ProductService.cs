@@ -40,7 +40,7 @@ namespace MVC_Commerce.Data.Services
         public async Task<Products> GetProductByIdAsync(int id)
         {
             var productDetails = await _context.Products
-                            .Include(c => c.Category).Include(c => c.Comments).Include(f => f.Favourites).ThenInclude(u => u.User).FirstOrDefaultAsync(n => n.Id == id);
+                            .Include(c => c.Category).FirstOrDefaultAsync(n => n.Id == id);
             return productDetails;
         }
 

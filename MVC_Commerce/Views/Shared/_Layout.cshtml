@@ -51,6 +51,8 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
 
+                    <a class="btn btn-outline-success my-2 my-sm" asp-controller="Account" asp-action="Login"> <i class="bi bi-box-arrow-in-right"></i>Log in</a>
+
                     @* User Profile Section*@
                     <div class="dropdown">
                         <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,8 +81,7 @@
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2022 Copyright:
-            <a class="text-reset fw-bold" href="https://www.linkedin.com/in/refikburakakbas/">Refik Burak Akbaş</a> &
-            <a class="text-reset fw-bold" href="https://www.linkedin.com/in/seda-mencik/">Seda Mencik</a>
+            <a class="text-reset fw-bold" href="https://www.linkedin.com/in/refikburakakbas/">Refik Burak Akbaş</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

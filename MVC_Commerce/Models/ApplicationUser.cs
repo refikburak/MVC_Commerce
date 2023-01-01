@@ -6,6 +6,6 @@ namespace MVC_Commerce.Models
     public class ApplicationUser:IdentityUser
     {
         [Display(Name ="Full Name")]
-        public int FullName { get; set; }
+        public string FullName { get; set; }
     }
 }

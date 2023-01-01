@@ -31,7 +31,7 @@
                                 {
                                     <li>
                                         <div class="alert alert-info align-middle" role="alert">
-                                            <span style="height:auto;"class="badge bg-success align-middle">@item.Amount</span>[@item.Price.ToString("c")] - @item.Product.ProductBrand @item.Product.ProductName
+                                            <span style="height:auto;" class="badge bg-success align-middle">@item.Amount</span>[@item.Price.ToString("c")] - @item.Product.ProductBrand @item.Product.ProductName
                                         </div>
                                     </li>
                                 }
@@ -41,7 +41,7 @@
                             @order.OrderItems.Select(n=>n.Product.ProductPrice*n.Amount).Sum().ToString("c")
                         </td>
                         <td class="align-middle"> - </td>
-              
+
                     </tr>
                 }
             </tbody>

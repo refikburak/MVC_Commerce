@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVC_Commerce.Data;
 using MVC_Commerce.Data.Cart;
@@ -14,14 +16,22 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CommerceContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 //Service Configuration
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
 
+
+//Authentication and authorization
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<CommerceContext>();
+builder.Services.AddMemoryCache();
+
 builder.Services.AddSession();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+});
 
 var app = builder.Build();
 
@@ -39,6 +49,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
+//Authentication and authorization
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseAuthorization();
 
@@ -48,5 +61,6 @@ app.MapControllerRoute(
 
 //Seed Database
 CommerceDbInitializer.Seed(app);
+//CommerceDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 app.Run();

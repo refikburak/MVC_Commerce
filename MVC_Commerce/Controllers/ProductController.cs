@@ -88,8 +88,6 @@ namespace MVC_Commerce.Controllers
                 CategoryId = productDetails.CategoryId,
                 ProductImageURL = productDetails.ProductImageURL,
                 ProductQuantity = productDetails.ProductQuantity,
-                CommentIds=productDetails.Comments.Select(c => c.Id).ToList(),
-                FavouriteIds=productDetails.Favourites.Select(f=>f.ProductId).ToList(),
             };
             
             var productDropdownsData = await _service.GetNewProductDropdownsValues();

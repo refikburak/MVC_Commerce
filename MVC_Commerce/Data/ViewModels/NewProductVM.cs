@@ -38,9 +38,6 @@ namespace MVC_Commerce.Models
         [Display(Name = "Select Category")]
         public int CategoryId { get; set; }
 
-        //Relationships
-        public List<int>? CommentIds { get; set; }
-        public List<int>? FavouriteIds { get; set; }
 
 
     }

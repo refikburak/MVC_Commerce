@@ -37,7 +37,7 @@
                     <div class="col-md-10 offset-1">
                     </div>
                 </div>
-                <h1>Comments</h1>
+                @*<h1>Comments</h1>
                 @foreach (var comment in Model.Comments)
                 {
                     <a asp-controller="Comment" asp-action="Details" asp-route-id="@comment.Id"></a>
@@ -48,7 +48,7 @@
                         <h2>@comment.Title</h2>
                         <p>@comment.Description</p>
                     </div>
-                }
+                }*@
                 <hr class="rounded" />
 
             </div>
