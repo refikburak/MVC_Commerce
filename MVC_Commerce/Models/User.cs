@@ -25,8 +25,8 @@ namespace MVC_Commerce.Models
         public double UserBalance { get; set; }
 
         //Relationships
-        public List<Comment> Comments { get; set; }
-        public List<Favourite> Favourites { get; set; }
+        public List<Comment>? Comments { get; set; }
+        public List<Favourite>? Favourites { get; set; }
 
     }
 }

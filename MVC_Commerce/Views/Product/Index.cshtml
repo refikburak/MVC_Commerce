@@ -9,23 +9,28 @@
     @foreach (var item in Model)
     {
         <div class="col-6 ">
-            <div class="wrapper"><a asp-action="Details" asp-route-id="@item.Id">
-                <div class="product-img">
-                    <img src="@item.ProductImageURL" height="420" width="327">
-                </div>
-                <div class="product-info">
-                    <div class="product-text">
-                        <h1>@item.ProductBrand @item.ProductName</h1>
-                        <h2>@item.Category.CategoryName</h2>
-                        <p>@item.ProductDescription </p>
+            <div class="wrapper">
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    <div class="product-img">
+                        <img src="@item.ProductImageURL" height="420" width="327">
                     </div>
-                    <div class="product-price-btn">
-                        <p><span>@item.ProductPrice</span>₺</p>
-                        <button type="button">buy now</button>
+                    <div class="product-info">
+                        <div class="product-text">
+                            <h1>@item.ProductBrand @item.ProductName</h1>
+                            <h2>@item.Category.CategoryName</h2>
+                            <p>@item.ProductDescription </p>
+
+                        </div>
+                        <div class="product-price-btn">
+                            <p><span>@item.ProductPrice</span>₺</p>
+                            <button type="button">buy now</button>
+                        </div>
                     </div>
-                </div>
                 </a>
+                <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square">Edit</i></a>
             </div>
         </div>
     }
 </div>
+
+@await Html.PartialAsync("_CreateItem","Product")

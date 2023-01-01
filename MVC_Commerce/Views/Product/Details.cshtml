@@ -8,17 +8,44 @@
 
     <div class=" col-md-10 offset-1">
         <div class="product-card">
+            <a asp-action="Index">Back to Products</a>
             <div class="row">
                 <div class="col-6">
                     <img src="@Model.ProductImageURL" width=95% />
                 </div>
                 <div class="col-6" style="font-family:'Bentham' , serif;">
-                    <h1>@Model.ProductBrand</h1>
-                    <h3>@Model.ProductName</h3>
-                    <p>@Model.Category.CategoryName</p>
-                    <hr class="rounded" />
-                    <p>@Model.ProductPrice₺</p>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="pill-nav">
+                                <a class="active" asp-controller="Category" asp-action="Details" asp-route-id="@Model.CategoryId"> @Model.Category.CategoryName</a>
+                            </div>
+                            <h1>@Model.ProductBrand</h1>
+                            <h3>@Model.ProductName</h3>
+                            <h1>@Model.ProductPrice₺</h1>
+                            <hr class="rounded" />
+                            <h3>Description</h3>
+                            <p>@Model.ProductDescription</p>
+                            <p>Quantity: @Model.ProductQuantity</p>
+                            <hr class="rounded" />
+                        </div>
+                    </div>
+                    <div class="col-md-10 offset-1">
+                    </div>
                 </div>
+                <h1>Comments</h1>
+                @foreach (var comment in Model.Comments)
+                {
+                    <a asp-controller="Comment" asp-action="Details" asp-route-id="@comment.Id"></a>
+                    <div class="comment-bar">
+                        <div class="comment-up>">
+                            @comment.User.UserName @comment.User.UserSurname
+                        </div>
+                        <h2>@comment.Title</h2>
+                        <p>@comment.Description</p>
+                    </div>
+                }
+                <hr class="rounded" />
+
             </div>
         </div>
     </div>

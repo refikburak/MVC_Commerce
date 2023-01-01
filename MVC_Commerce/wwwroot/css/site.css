@@ -137,3 +137,44 @@ hr.rounded {
     border-top: 8px solid #bbb;
     border-radius: 5px;
 }
+
+.pill-nav a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 17px;
+    -webkit-border-radius: 25%;
+    -moz-border-radius: 25%;
+    border-radius: 25%;
+}
+
+    /* Change the color of links on mouse-over */
+    .pill-nav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    /* Add a color to the active/current link */
+    .pill-nav a.active {
+        background-color: orange;
+        color: black;
+    }
+
+
+.comment-bar {
+    display: inline-block;
+    background-color: lightgray;
+    padding: 20px;
+    margin: 20px;
+    color: black;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.comment-up {
+    text-align: end;
+    font-size: 25px;
+    align-content:end;
+}

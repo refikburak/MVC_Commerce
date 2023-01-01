@@ -1,0 +1,88 @@
+﻿@model NewProductVM
+
+@{
+    ViewData["Title"] = "Update Product";
+}
+
+<div class="row">
+    <div class="col-10 offset-1">
+        <p>
+            <h3>Update Product</h3>
+        </p>
+        <div class="row">
+            <div class="col-10 offset-1">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label asp-for="ProductBrand" class="control-label"></label>
+                                <input asp-for="ProductBrand" class="form-control" />
+                                <span asp-validation-for="ProductBrand" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProductName" class="control-label"></label>
+                                <input asp-for="ProductName" class="form-control" />
+                                <span asp-validation-for="ProductName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProductImageURL" class="control-label"></label>
+                                <input asp-for="ProductImageURL" class="form-control" />
+                                <span asp-validation-for="ProductImageURL" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label asp-for="CategoryId" class="control-label"></label>
+                                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories"></select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProductPrice" class="control-label"></label>
+                                <input asp-for="ProductPrice" class="form-control" type="number" />
+                                <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ProductQuantity" class="control-label"></label>
+                                <input asp-for="ProductQuantity" class="form-control" />
+                                <span asp-validation-for="ProductQuantity" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label asp-for="ProductDescription" class="control-label"></label>
+                                <textarea asp-for="ProductDescription" class="form-control"></textarea>
+                                <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4 offset-4 text-center">
+                        <img width="100%" id="ImageUrlPreview" />
+                    </div>
+
+                    <div class="form_group">
+                        <input type="submit" value="Update" class="btn btn-outline-success float-end"/>
+                        <a class="btn btn-outline-info" asp-action="Index">Display All</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function(){
+            var output = document.getElementById("ImageUrlPreview");
+            output.src = $("#ProductImageURL").val();
+        });
+
+        $("#ProductImageURL").on("change", function () {
+            var output = document.getElementById("ImageUrlPreview");
+            output.src = $(this).val();
+        })
+    </script>
+}
