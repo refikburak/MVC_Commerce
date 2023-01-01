@@ -109,7 +109,7 @@ span {
     font-family: 'Suranna', serif;
 }
 
-.product-price-btn button {
+.product-price-btn div {
     float: right;
     display: inline-block;
     height: 50px;
@@ -127,9 +127,13 @@ span {
     background-color: #9cebd5;
     cursor: pointer;
     outline: none;
+    text-align:center;
+    align-content:center;
+    align-items:center;
+    padding:13px 0;
 }
 
-    .product-price-btn button:hover {
+    .product-price-btn div:hover {
         background-color: #79b0a1;
     }
 

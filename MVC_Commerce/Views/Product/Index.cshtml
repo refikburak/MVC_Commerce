@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model IEnumerable<Products>
 
 @{
     ViewData["Title"] = "List of Products";
@@ -14,19 +14,21 @@
                     <div class="product-img">
                         <img src="@item.ProductImageURL" height="420" width="327">
                     </div>
-                    <div class="product-info">
-                        <div class="product-text">
-                            <h1>@item.ProductBrand @item.ProductName</h1>
-                            <h2>@item.Category.CategoryName</h2>
-                            <p>@item.ProductDescription </p>
-
-                        </div>
-                        <div class="product-price-btn">
-                            <p><span>@item.ProductPrice</span>₺</p>
-                            <button type="button">buy now</button>
-                        </div>
-                    </div>
                 </a>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h1>@item.ProductBrand @item.ProductName</h1>
+                        <h2>@item.Category.CategoryName</h2>
+                        <p>@item.ProductDescription </p>
+
+                    </div>
+                    <div class="product-price-btn">
+                        <p><span>@item.ProductPrice</span>₺</p>
+                        <a asp-controller="Order" asp-action="AddToShoppingCart" asp-route-id="@item.Id">
+                            <div type="button">Add to cart</div>
+                        </a>
+                    </div>
+                </div>
                 <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square">Edit</i></a>
             </div>
         </div>

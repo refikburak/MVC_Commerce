@@ -1,4 +1,4 @@
-﻿@model Product
+﻿@model Products
 
 @{
     ViewData["Title"] = "Product Details";
@@ -26,6 +26,11 @@
                             <h3>Description</h3>
                             <p>@Model.ProductDescription</p>
                             <p>Quantity: @Model.ProductQuantity</p>
+                            <div class="product-price-btn">
+                                <a asp-controller="Order" asp-action="AddToShoppingCart" asp-route-id="@Model.Id">
+                                    <div type="button">Add to cart</div>
+                                </a>
+                            </div>
                             <hr class="rounded" />
                         </div>
                     </div>

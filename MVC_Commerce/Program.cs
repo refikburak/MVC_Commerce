@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MVC_Commerce.Data;
+using MVC_Commerce.Data.Cart;
 using MVC_Commerce.Data.Interfaces;
 using MVC_Commerce.Data.Services;
 using MVC_Commerce.Models;
@@ -15,6 +16,12 @@ builder.Services.AddDbContext<CommerceContext>(options => options.UseSqlServer(b
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -30,6 +37,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

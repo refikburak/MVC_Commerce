@@ -4,9 +4,9 @@ using MVC_Commerce.Models;
 
 namespace MVC_Commerce.Data.Interfaces
 {
-    public interface IProductService:IEntityBaseRepository<Product>
+    public interface IProductService:IEntityBaseRepository<Products>
     {
-        Task<Product> GetProductByIdAsync(int id);
+        Task<Products> GetProductByIdAsync(int id);
         Task<NewProductDropdownVM> GetNewProductDropdownsValues();
         Task AddNewProductAsync(NewProductVM data);
         Task UpdateProductAsync(NewProductVM data);

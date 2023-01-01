@@ -6,7 +6,7 @@ using MVC_Commerce.Models;
 
 namespace MVC_Commerce.Data.Services
 {
-    public class ProductService : EntityBaseRepository<Product>, IProductService
+    public class ProductService : EntityBaseRepository<Products>, IProductService
     {
         private readonly CommerceContext _context;
         public ProductService(CommerceContext context) : base(context)
@@ -16,7 +16,7 @@ namespace MVC_Commerce.Data.Services
 
         public async Task AddNewProductAsync(NewProductVM data)
         {
-            var newProduct = new Product()
+            var newProduct = new Products()
             {
                 ProductName = data.ProductName,
                 ProductDescription = data.ProductDescription,
@@ -37,7 +37,7 @@ namespace MVC_Commerce.Data.Services
             return response;
         }
 
-        public async Task<Product> GetProductByIdAsync(int id)
+        public async Task<Products> GetProductByIdAsync(int id)
         {
             var productDetails = await _context.Products
                             .Include(c => c.Category).Include(c => c.Comments).Include(f => f.Favourites).ThenInclude(u => u.User).FirstOrDefaultAsync(n => n.Id == id);

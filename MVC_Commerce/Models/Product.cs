@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Commerce.Models
 {
-    public class Product:IEntityBase
+    public class Products:IEntityBase
     {
         [Key]
         public int Id { get; set; }

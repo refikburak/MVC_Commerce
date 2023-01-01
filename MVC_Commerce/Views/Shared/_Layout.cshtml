@@ -41,17 +41,29 @@
                     </ul>
                     <form class="row row-cols-lg-auto g-3 align-items-center" asp-controller="Product" asp-action="Filter">
                         <div class="col-12">
-
                             <input name="searchString" class="form-control me-2" type="search" placeholder="Search for a product" aria-label="Search">
-
                         </div>
                         <div class="col-12">
-
-
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
+                    <ul class="navbar-nav">
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>
 
+                    @* User Profile Section*@
+                    <div class="dropdown">
+                        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-badge"></i> Hello User
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="profile-btn">
+                            <li> <a class="dropdown-item" asp-controller="Order" asp-action="Index">
+                                    <i class="bi bi-list"></i>Orders
+                                </a></li>
+                            <li><a class="dropdown-item" >Another action</a></li>
+                            <li><a class="dropdown-item">Something else here</a></li>
+                        </ul>
+                    </div>
 
                 </div>
             </div>
@@ -71,9 +83,9 @@
             <a class="text-reset fw-bold" href="https://www.linkedin.com/in/seda-mencik/">Seda Mencik</a>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

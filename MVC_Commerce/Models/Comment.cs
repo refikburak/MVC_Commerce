@@ -15,7 +15,7 @@ namespace MVC_Commerce.Models
         //Product
         public int ProductId { get; set; }
         [Display(Name = "Product Full Name")]
-        public Product Product { get; set; }
+        public Products Product { get; set; }
 
         [Display(Name ="Title")]
         public string Title { get; set; }
